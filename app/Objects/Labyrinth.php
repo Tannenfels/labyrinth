@@ -102,10 +102,23 @@ class Labyrinth
     }
     public function setEntry()
     {
-        $this->tiles[mt_rand(1, $this->width - 2)][0]->isEntry = true;
+        $entry = mt_rand(1, $this->width - 2);
+        $this->tiles[$entry][0]->isEntry = true;
+        $this->entryTile = $this->tiles[$entry][0];
     }
+
+    public function getEntry()
+    {
+        return $this->entryTile;
+    }
+
     public function setExit(int $point)
     {
         $this->tiles[$point][$this->height - 1]->isExit = true;
+    }
+
+    public function getExit()
+    {
+        return $this->exitTile;
     }
 }
